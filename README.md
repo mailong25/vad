@@ -37,7 +37,7 @@ array_frames = (float_frames * 32768.0).astype(np.int16,order='C')
 array_frames = np.frombuffer(byte_frames,dtype=np.int16)
 ```
 
-# Host in inference server
+# Host a inference server
 
 Edit server.py, change the frame_duration and FRAME_SAMPLING_RATE.\
 Make sure that the client only send binary data with the same sampling as FRAME_SAMPLING_RATE in server.py

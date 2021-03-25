@@ -13,7 +13,7 @@ Where:
 
 ## Make prediction from audio path
 ```
-result = detector.predict(test.wav,FRAME_SAMPLING_RATE)
+result = detector.predict('test.wav',FRAME_SAMPLING_RATE)
 ```
 
 ## Make prediction from raw bytes

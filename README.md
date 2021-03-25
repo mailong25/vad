@@ -10,8 +10,9 @@ FRAME_SAMPLING_RATE = 44100
 with open('test.wav','wb') as f:
     header = f.read(44)
     frames = f.read()
-    
+```
 If frames are represented as bytes --> Convert frames into numpy int array
+```
 array_frames = np.frombuffer(frames,dtype=np.int16)
 result = detector.predict(array_frames,FRAME_SAMPLING_RATE)
 
@@ -21,21 +22,28 @@ result = detector.predict(test.wav,FRAME_SAMPLING_RATE)
 ```
 
 ## Host in inference server
-Edit server.py, change the frame_duration and FRAME_SAMPLING_RATE.
-Make sure that the client only send binary data with the same as FRAME_SAMPLING_RATE in server.py
+
+Edit server.py, change the frame_duration and FRAME_SAMPLING_RATE.\
+Make sure that the client only send binary data with the same as FRAME_SAMPLING_RATE in server.py\
 
 Run the server
+```
 gunicorn3 -w 2 -t 3000 --threads 2 -b 0.0.0.0:5700 server:app
+```
 
 # Client call
+```
 with open('test.wav','wb') as f:
     header = f.read(44)
     frames = f.read()
+```
 
 Note: Make sure that the sampling rate of test.wav as the same as FRAME_SAMPLING_RATE in server.py
 
+```
 res = requests.post('http://127.0.0.1:5700/predict', data = frames)
 res = res.json()['result']
+```
 
 ### 
 array_frames = np.frombuffer(byte_frames,dtype=np.int16)

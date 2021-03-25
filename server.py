@@ -1,7 +1,6 @@
 from vad import VAD
 import numpy as np
 import flask
-import redis
 import uuid
 import time
 import json

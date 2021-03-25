@@ -1,6 +1,6 @@
 # Voice Activity Detection
 
-## Make inference
+## Load model
 ```
 from vad import VAD
 detector = VAD(frame_duration = 0.5, model_path = 'models/vad')

@@ -18,7 +18,7 @@ result = detector.predict(test.wav,FRAME_SAMPLING_RATE)
 
 ## Make prediction from raw bytes
 ```
-with open('test.wav','wb') as f:
+with open('test.wav','rb') as f:
     header = f.read(44)
     frames = f.read()
 
@@ -49,7 +49,7 @@ gunicorn3 -w 2 -t 3000 --threads 2 -b 0.0.0.0:5700 server:app
 
 # Client call
 ```
-with open('test.wav','wb') as f:
+with open('test.wav','rb') as f:
     header = f.read(44)
     frames = f.read()
 ```

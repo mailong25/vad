@@ -15,7 +15,7 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-detector = VAD(frame_duration = 1, model_path = 'models/vad')
+detector = VAD(frame_duration = 0.5, model_path = 'models/vad')
 SAMPLING_RATE = 44100
 
 @app.route("/")

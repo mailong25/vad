@@ -1,7 +1,14 @@
 # Voice Activity Detection
 
+## Dependencies
+- tensorflow==1.15.0
+- gunicorn==19.4.5
+sudo apt-get install gunicorn3
+
 ## Load model
 ```
+import numpy as np
+import requests
 from vad import VAD
 detector = VAD(frame_duration = 0.5, model_path = 'models/vad')
 FRAME_SAMPLING_RATE = 44100
@@ -23,18 +30,20 @@ with open('test.wav','rb') as f:
     frames = f.read()
 
 array_frames = np.frombuffer(frames,dtype=np.int16)
+array_frames = array_frames.astype(np.float32, order='C') / 32768.0
 result = detector.predict(array_frames,FRAME_SAMPLING_RATE)
 ```
-Note: The "array_frames" must be the type of numpy int array\
-Here how you can convert frames in other types into numpy int array:
+Note: The "array_frames" must be the type of numpy float array\
+Here how you can convert frames in other types into numpy float array:
 
-##### numpy float array -->  numpy int array
+##### numpy int array -->  numpy float array
 ```
-array_frames = (float_frames * 32768.0).astype(np.int16,order='C')
+array_frames = int_frames.astype(np.float32, order='C') / 32768.0
 ```
-#### bytes -->  numpy int array
+#### bytes -->  numpy float array
 ```
 array_frames = np.frombuffer(byte_frames,dtype=np.int16)
+array_frames = array_frames.astype(np.float32, order='C') / 32768.0
 ```
 
 # Host a inference server

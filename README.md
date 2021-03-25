@@ -3,6 +3,7 @@
 ## Dependencies
 - tensorflow==1.15.0
 - gunicorn==19.4.5
+
 sudo apt-get install gunicorn3
 
 ## Load model

@@ -1,5 +1,8 @@
 # Voice Activity Detection
 
+# Credit claiming:
+The code is taken from this great repo https://github.com/hcmlab/vadnet
+
 ## Dependencies
 - tensorflow==1.15.0
 - gunicorn==19.4.5

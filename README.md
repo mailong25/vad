@@ -8,9 +8,9 @@ FRAME_SAMPLING_RATE = 44100
 
 ```
 Where:
-- frame_duration: how to split the frames/audio. For example, if frame_duration=0.5 and len(audio) = 5s, then the audio will be splited into 10 small chunks. Each chunk is 0.5s long. The model will run predictions on each chunk to check if it is a speech or silent. Make sure 0.1 < frame_duration < 1.0. The higher the frame_duration the better the accuracy\
-- model_path: path to model\
-- FRAME_SAMPLING_RATE: the sampling rate of the audio/frames.\
+- frame_duration: how to split the frames/audio. For example, if frame_duration=0.5 and len(audio) = 5s, then the audio will be splited into 10 small chunks. Each chunk is 0.5s long. The model will run predictions on each chunk to check if it is a speech or silent. Make sure 0.1 < frame_duration < 1.0. The higher the frame_duration the better the accuracy
+- model_path: path to model
+- FRAME_SAMPLING_RATE: the sampling rate of the audio/frames.
 
 ## Make prediction from audio path
 ```
